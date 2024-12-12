@@ -15,7 +15,6 @@ class ListCities extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\LocaleSwitcher::make(),
             Actions\CreateAction::make()->label(__('New ') . ModelLabelHelper::translateModelLabel(self::getModel())),
         ];
     }

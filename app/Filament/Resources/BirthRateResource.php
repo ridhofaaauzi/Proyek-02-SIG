@@ -34,16 +34,22 @@ class BirthRateResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('total')
+                Forms\Components\select::make('district_id')
                     ->required()
-                    ->numeric()
-                    ->default(0),
+                    ->options(
+                        \App\Models\District::all()->pluck('name', 'id')
+                    )
+                    ->searchable(),
                 Forms\Components\select::make('birthyear_id')
                     ->required()
                     ->options(
                         \App\Models\BirthYear::all()->pluck('years', 'id')
                     )
                     ->searchable(),
+                Forms\Components\TextInput::make('total')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
             ]);
     }
 
@@ -51,11 +57,13 @@ class BirthRateResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('total')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('district.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('birthYear.years')
                     // ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

@@ -4,17 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class District extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
     protected $table = 'districts';
     protected $fillable = ['name', 'alt_name', 'latitude', 'longitude', 'city_id'];
-    public $translatable = ['name', 'alt_name'];
 
-    function city()
+    function city(): BelongsTo
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    function districtDatas(): HasMany
+    {
+        return $this->hasMany(DistrictData::class, 'district_id');
+    }
+
+    function birthRates(): HasMany
+    {
+        return $this->hasMany(BirthRate::class, 'district_id');
     }
 }

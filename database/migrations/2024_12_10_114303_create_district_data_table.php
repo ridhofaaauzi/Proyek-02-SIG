@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('district_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('district_id')->constrained('districts');
-            $table->double('broad');
-            $table->integer('total')->default(0);
+            $table->double('area');
+            $table->integer('population')->default(0);
             $table->year('year');
-            $table->foreignId('birthrate_id')->constrained('birth_rates');
             $table->timestamps();
         });
     }

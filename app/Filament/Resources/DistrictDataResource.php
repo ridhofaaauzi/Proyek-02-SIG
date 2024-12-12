@@ -40,21 +40,15 @@ class DistrictDataResource extends Resource
                         \App\Models\District::all()->pluck('name', 'id')
                     )
                     ->searchable(),
-                Forms\Components\TextInput::make('broad')
+                Forms\Components\TextInput::make('area')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('total')
+                Forms\Components\TextInput::make('population')
                     ->required()
                     ->numeric()
                     ->default(0),
                 Forms\Components\TextInput::make('year')
                     ->required(),
-                Forms\Components\select::make('birthrate_id')
-                    ->required()
-                    ->options(
-                        \App\Models\BirthRate::all()->pluck('total', 'id')
-                    )
-                    ->searchable(),
             ]);
     }
 
@@ -65,18 +59,15 @@ class DistrictDataResource extends Resource
                 Tables\Columns\TextColumn::make('district.name')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('broad')
+                Tables\Columns\TextColumn::make('area')
                     ->numeric()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('total')
+                Tables\Columns\TextColumn::make('population')
                     ->numeric()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('year'),
-
-                Tables\Columns\TextColumn::make('birthRate.total')
-                    ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

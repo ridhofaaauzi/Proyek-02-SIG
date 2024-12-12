@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('birth_rates', function (Blueprint $table) {
             $table->id();
-            $table->integer('total')->default(0);
             $table->foreignId('birthyear_id')->constrained('birth_years');
+            $table->foreignId('district_id')->constrained('districts');
+            $table->integer('total')->default(0);
             $table->timestamps();
         });
     }
