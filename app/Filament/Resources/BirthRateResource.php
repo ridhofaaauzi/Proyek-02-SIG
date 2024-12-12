@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BirthRateResource\Pages;
 use App\Filament\Resources\BirthRateResource\RelationManagers;
+use App\Helpers\ModelLabelHelper;
 use App\Models\BirthRate;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -17,7 +18,17 @@ class BirthRateResource extends Resource
 {
     protected static ?string $model = BirthRate::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-trending-up';
+
+    public static function getModelLabel(): string
+    {
+        return ModelLabelHelper::translateModelLabel(self::$model);
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return ModelLabelHelper::translatePluralModelLabel(self::$model);
+    }
 
     public static function form(Form $form): Form
     {
@@ -31,7 +42,8 @@ class BirthRateResource extends Resource
                     ->required()
                     ->options(
                         \App\Models\BirthYear::all()->pluck('years', 'id')
-                    ),
+                    )
+                    ->searchable(),
             ]);
     }
 

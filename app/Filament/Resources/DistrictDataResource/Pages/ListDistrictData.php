@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\DistrictDataResource\Pages;
 
 use App\Filament\Resources\DistrictDataResource;
+use App\Helpers\ModelLabelHelper;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -13,7 +14,7 @@ class ListDistrictData extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('New ') . ModelLabelHelper::translateModelLabel(self::getModel())),
         ];
     }
 }

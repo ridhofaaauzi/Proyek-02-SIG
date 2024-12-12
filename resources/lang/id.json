@@ -1,0 +1,89 @@
+{
+    "Name": "Nama",
+    "Email": "Email",
+    "Password": "Kata Sandi",
+    "Phone": "Nomor Telepon",
+    "Address": "Alamat",
+    "Description": "Deskripsi",
+    "Status": "Status",
+    "Total": "Total",
+    "Year": "Tahun",
+    "Alt name": "Nama Alternatif",
+    "Latitude": "Latitude",
+    "Longitude": "Longitude",
+    "Broad": "Luas",
+    "Birth Rate": "Tingkat Kelahiran",
+    "Birth Year": "Tanggal Lahir",
+    "City": "Kota",
+    "District Data": "Data Kecamatan",
+    "District": "Kecamatan",
+    "Birth Rates": "Tingkat Kelahiran",
+    "Birth Years": "Tanggal Lahir",
+    "Cities": "Kota",
+    "District Datas": "Data Kecamatan",
+    "Districts": "Kecamatan",
+    "New ": "Buat ",
+    "Edit ": "Ubah ",
+    "Delete ": "Hapus ",
+    "widgets": {
+        "dark_mode": "Mode Gelap",
+        "light_mode": "Mode Terang"
+    },
+    "actions": {
+        "create": "Buat",
+        "update": "Perbarui",
+        "save": "Simpan",
+        "delete": "Hapus",
+        "cancel": "Batal"
+    },
+    "fields": {
+        "name": "Nama",
+        "email": "Email",
+        "password": "Kata Sandi",
+        "phone": "Nomor Telepon",
+        "address": "Alamat",
+        "description": "Deskripsi",
+        "status": "Status"
+    },
+
+    "tables": {
+        "actions": {
+            "edit": "Edit",
+            "delete": "Hapus",
+            "view": "Lihat"
+        },
+        "filters": {
+            "search": "Cari",
+            "apply": "Terapkan",
+            "reset": "Reset"
+        },
+        "columns": {
+            "id": "ID",
+            "name": "Nama",
+            "created_at": "Dibuat Pada",
+            "updated_at": "Diperbarui Pada",
+            "actions": "Tindakan"
+        }
+    },
+    "notifications": {
+        "create": {
+            "success": "Berhasil membuat :resource.",
+            "error": "Terjadi kesalahan saat membuat :resource."
+        },
+        "update": {
+            "success": "Berhasil memperbarui :resource.",
+            "error": "Terjadi kesalahan saat memperbarui :resource."
+        },
+        "delete": {
+            "success": "Berhasil menghapus :resource.",
+            "error": "Terjadi kesalahan saat menghapus :resource."
+        }
+    },
+    "permissions": {
+        "manage": "Kelola",
+        "view": "Lihat",
+        "create": "Buat",
+        "edit": "Edit",
+        "delete": "Hapus"
+    }
+}

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BirthYearResource\Pages;
 use App\Filament\Resources\BirthYearResource\RelationManagers;
+use App\Helpers\ModelLabelHelper;
 use App\Models\BirthYear;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -17,7 +18,17 @@ class BirthYearResource extends Resource
 {
     protected static ?string $model = BirthYear::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar';
+
+    public static function getModelLabel(): string
+    {
+        return ModelLabelHelper::translateModelLabel(self::$model);
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return ModelLabelHelper::translatePluralModelLabel(self::$model);
+    }
 
     public static function form(Form $form): Form
     {

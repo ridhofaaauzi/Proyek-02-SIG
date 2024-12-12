@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DistrictDataResource\Pages;
 use App\Filament\Resources\DistrictDataResource\RelationManagers;
+use App\Helpers\ModelLabelHelper;
 use App\Models\DistrictData;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -19,6 +20,16 @@ class DistrictDataResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return ModelLabelHelper::translateModelLabel(self::$model);
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return ModelLabelHelper::translatePluralModelLabel(self::$model);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -27,7 +38,8 @@ class DistrictDataResource extends Resource
                     ->required()
                     ->options(
                         \App\Models\District::all()->pluck('name', 'id')
-                    ),
+                    )
+                    ->searchable(),
                 Forms\Components\TextInput::make('broad')
                     ->required()
                     ->numeric(),
@@ -41,7 +53,8 @@ class DistrictDataResource extends Resource
                     ->required()
                     ->options(
                         \App\Models\BirthRate::all()->pluck('total', 'id')
-                    ),
+                    )
+                    ->searchable(),
             ]);
     }
 
@@ -50,23 +63,19 @@ class DistrictDataResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('district.name')
-                    ->label('District Name')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('broad')
-                    ->label('Broad')
                     ->numeric()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('total')
-                    ->label('Total Population')
                     ->numeric()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('year'),
 
                 Tables\Columns\TextColumn::make('birthRate.total')
-                    ->label('2020')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')

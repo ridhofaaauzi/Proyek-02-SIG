@@ -4,7 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DistrictResource\Pages;
 use App\Filament\Resources\DistrictResource\RelationManagers;
+use App\Helpers\ModelLabelHelper;
 use App\Models\District;
+use App\Providers\AppServiceProvider;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,7 +19,17 @@ class DistrictResource extends Resource
 {
     protected static ?string $model = District::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
+
+    public static function getModelLabel(): string
+    {
+        return ModelLabelHelper::translateModelLabel(self::$model);
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return ModelLabelHelper::translatePluralModelLabel(self::$model);
+    }
 
     public static function form(Form $form): Form
     {
@@ -39,7 +51,8 @@ class DistrictResource extends Resource
                     ->required()
                     ->options(
                         \App\Models\City::all()->pluck('name', 'id')
-                    ),
+                    )
+                    ->searchable(),
             ]);
     }
 
