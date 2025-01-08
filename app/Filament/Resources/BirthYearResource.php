@@ -34,7 +34,7 @@ class BirthYearResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('years')
+                Forms\Components\TextInput::make('year')
                     ->required(),
             ]);
     }
@@ -43,7 +43,7 @@ class BirthYearResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('years'),
+                Tables\Columns\TextColumn::make('year'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

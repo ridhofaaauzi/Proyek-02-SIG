@@ -11,7 +11,7 @@ class District extends Model
 {
     use HasFactory;
     protected $table = 'districts';
-    protected $fillable = ['name', 'alt_name', 'latitude', 'longitude', 'city_id'];
+    protected $fillable = ['name', 'alt_name', 'latitude', 'longitude', 'polygon', 'city_id'];
 
     function city(): BelongsTo
     {

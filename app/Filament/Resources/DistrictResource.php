@@ -47,6 +47,12 @@ class DistrictResource extends Resource
                 Forms\Components\TextInput::make('longitude')
                     ->required()
                     ->numeric(),
+                Forms\Components\FileUpload::make('polygon')
+                    ->label('Upload Polygon (GeoJSON)')
+                    ->disk('public')
+                    ->directory('geojson')
+                    ->acceptedFileTypes(['application/json'])
+                    ->maxSize(1024),
                 Forms\Components\select::make('city_id')
                     ->required()
                     ->options(

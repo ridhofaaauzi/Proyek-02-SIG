@@ -33,7 +33,7 @@ class BirthRateSeeder extends Seeder
             $districtId = District::where('name', $districtData['district_name'])->first()->id;
 
             foreach ($districtData['birthrates'] as $year => $birthrate) {
-                $birthYearId = BirthYear::where('years', $year)->first()->id;
+                $birthYearId = BirthYear::where('year', $year)->first()->id;
 
                 BirthRate::create([
                     'total' => $birthrate,

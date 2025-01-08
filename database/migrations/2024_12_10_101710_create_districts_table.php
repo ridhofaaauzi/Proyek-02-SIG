@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('alt_name', 30);
             $table->double('latitude');
             $table->double('longitude');
+            $table->longText('polygon')->nullable();
             $table->timestamps();
         });
     }

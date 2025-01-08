@@ -43,7 +43,7 @@ class BirthRateResource extends Resource
                 Forms\Components\select::make('birthyear_id')
                     ->required()
                     ->options(
-                        \App\Models\BirthYear::all()->pluck('years', 'id')
+                        \App\Models\BirthYear::all()->pluck('year', 'id')
                     )
                     ->searchable(),
                 Forms\Components\TextInput::make('total')
@@ -59,7 +59,7 @@ class BirthRateResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('district.name')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('birthYear.years')
+                Tables\Columns\TextColumn::make('birthYear.year')
                     // ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('total')

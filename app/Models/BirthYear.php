@@ -10,7 +10,7 @@ class BirthYear extends Model
 {
     use HasFactory;
     protected $table = 'birth_years';
-    protected $fillable = ['years'];
+    protected $fillable = ['year'];
 
     function birthRates(): HasMany
     {

@@ -17,7 +17,7 @@ class BirthYearSeeder extends Seeder
 
         foreach ($years as $year) {
             BirthYear::insert([
-                'years' => $year,
+                'year' => $year,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
