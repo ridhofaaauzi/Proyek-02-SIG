@@ -34,7 +34,7 @@ class HomeController extends Controller
             ->where('district_id', $selected_district)
             ->first();
 
-        return view('index', compact('city_name', 'latitude', 'longitude', 'years', 'selected_year', 'district_data', 'birth_rate'));
+        return view('pages.map', compact('city_name', 'latitude', 'longitude', 'years', 'selected_year', 'district_data', 'birth_rate'));
     }
 
     public function getGeoJSON(Request $request)
