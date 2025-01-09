@@ -1,7 +1,7 @@
 <header>
     <div class="bg-blue-700 px-4 py-2">
         <div
-            class="text-gray-200 text-sm text-center mx-auto max-w-7xl flex flex-col sm:flex-row space-y-2 sm:space-x-2 justify-between items-center">
+            class="text-gray-200 text-sm text-center mx-auto max-w-7xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 justify-between items-center">
             <p id="current-date" class="sm:text-start"></p>
             <p class="sm:text-end">STANDAR WAKTU INDONESIA | <span id="current-time" class="text-green-500"></span>
             </p>
