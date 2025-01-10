@@ -26,7 +26,8 @@
             font-family: Figtree, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
             font-feature-settings: normal;
             font-variation-settings: normal;
-            -webkit-tap-highlight-color: transparent
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100vh
         }
 
         body {

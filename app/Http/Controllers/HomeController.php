@@ -7,12 +7,14 @@ use App\Models\BirthYear;
 use App\Models\City;
 use App\Models\District;
 use App\Models\DistrictData;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $city = City::where('name', 'Depok')->first();
         $city_name = $city->name;
@@ -37,7 +39,7 @@ class HomeController extends Controller
         return view('pages.map', compact('city_name', 'latitude', 'longitude', 'years', 'selected_year', 'district_data', 'birth_rate'));
     }
 
-    public function getGeoJSON(Request $request)
+    public function getGeoJSON(Request $request): JsonResponse
     {
         $selected_year = $request->input('year', BirthYear::pluck('year')->first());
 

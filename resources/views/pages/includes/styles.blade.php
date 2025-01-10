@@ -5,7 +5,6 @@
         box-sizing: border-box;
     }
 
-    html,
     body {
         height: 100%;
         margin: 0;
@@ -13,18 +12,13 @@
         flex-direction: column;
     }
 
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
     main {
         flex: 1;
         width: 100%;
     }
 
-    #map {
+    #map,
+    #map-skeleton {
         height: 300px;
     }
 
@@ -192,7 +186,9 @@
     }
 
     @media (min-width: 1024px) {
-        #map {
+
+        #map,
+        #map-skeleton {
             height: 500px;
         }
 

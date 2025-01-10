@@ -1,5 +1,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        const mapContainer = document.getElementById("map");
+        const skeletonLoader = document.getElementById("map-skeleton");
+
         const map = L.map("map");
 
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -116,6 +119,9 @@
                     });
                 },
             }).addTo(map);
+
+            skeletonLoader.classList.add("hidden");
+            mapContainer.classList.remove("hidden");
 
             map.fitBounds(geoJSONLayer.getBounds());
             updateLegend(minBirthRate, categories, maxBirthRate);
