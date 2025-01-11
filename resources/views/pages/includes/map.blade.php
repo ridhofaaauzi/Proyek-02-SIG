@@ -16,6 +16,14 @@
         const EPSG32748 = "+proj=utm +zone=48 +south +datum=WGS84 +units=m +no_defs";
         const EPSG4326 = "+proj=longlat +datum=WGS84 +no_defs";
 
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                district: params.get('district'),
+                year: params.get('year'),
+            };
+        }
+
         function getBirthRateColor(birthRate) {
             return birthRate > categories[3] ? '#800026' :
                 birthRate > categories[2] ? '#BD0026' :
@@ -35,16 +43,16 @@
                 div.innerHTML = '<div class="legend-title">Kategori Kelahiran</div>';
                 for (let i = 0; i < categories.length; i++) {
                     div.innerHTML += `
-            <div class="legend-item">
-                <i style="background:${getBirthRateColor(categories[i])}"></i>
-                <span>${i === 0 ? Math.floor(min) : Math.ceil(categories[i - 1])}–${Math.ceil(categories[i])}</span>
-            </div>`;
+                        <div class="legend-item">
+                            <i style="background:${getBirthRateColor(categories[i])}"></i>
+                            <span>${i === 0 ? Math.floor(min) : Math.ceil(categories[i - 1])} - ${Math.ceil(categories[i])}</span>
+                        </div>`;
                 }
                 div.innerHTML += `
-        <div class="legend-item">
-            <i style="background:${getBirthRateColor(max)}"></i>
-            <span>${Math.ceil(categories[3])}+</span>
-        </div>`;
+                    <div class="legend-item">
+                        <i style="background:${getBirthRateColor(max)}"></i>
+                        <span>${Math.ceil(categories[3])}+</span>
+                    </div>`;
                 return div;
             };
 
@@ -94,6 +102,20 @@
                         district_id
                     } = feature.properties;
 
+                    const urlParams = getUrlParams();
+                    const selectedDistrict = urlParams.district;
+
+                    if (selectedDistrict && district_id === parseInt(selectedDistrict, 10)) {
+                        layer.setStyle({
+                            fillOpacity: 1,
+                        });
+                        layer.bringToFront();
+                        layer.on('tooltipopen', () => {
+                            layer.getTooltip().getElement().classList.add(
+                                'hovered-tooltip');
+                        })
+                    }
+
                     layer.bindTooltip(name, {
                         permanent: true,
                         direction: 'center',
@@ -101,15 +123,30 @@
                     });
 
                     layer.on('mouseover', () => {
-                        const tooltip = layer.getTooltip().getElement();
-                        tooltip.classList.add(
-                            'hovered-tooltip');
+                        if (district_id !== parseInt(selectedDistrict, 10)) {
+                            layer.bringToFront();
+                            layer.setStyle({
+                                fillOpacity: 1,
+                                weight: 3,
+                            });
+
+                            const tooltip = layer.getTooltip().getElement();
+                            tooltip.classList.add(
+                                'hovered-tooltip');
+                        }
                     });
 
                     layer.on('mouseout', () => {
-                        const tooltip = layer.getTooltip().getElement();
-                        tooltip.classList.remove(
-                            'hovered-tooltip');
+                        if (district_id !== parseInt(selectedDistrict, 10)) {
+                            layer.setStyle({
+                                fillOpacity: 0.7,
+                                weight: 2,
+                            });
+
+                            const tooltip = layer.getTooltip().getElement();
+                            tooltip.classList.remove(
+                                'hovered-tooltip');
+                        }
                     });
 
                     layer.on('click', () => {
