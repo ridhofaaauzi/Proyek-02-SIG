@@ -51,8 +51,15 @@
                         </div>
                     </div>
                 </div>
-                <button id="openModal" class="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Lihat
-                    Detail</button>
+                <div class="flex items-center space-x-2">
+                    <button id="openModal" class="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Lihat
+                        Detail</button>
+                    <button id="copyButton"
+                        class="relative flex items-center justify-center mt-6 w-fit bg-blue-500 text-white p-2.5 rounded hover:bg-blue-600">
+                        <x-lucide-copy class="w-5 h-5" />
+                        @include('components.copy')
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -65,4 +72,5 @@
     @include('includes.leaflet')
     @include('pages.includes.map')
     @include('pages.includes.modal')
+    @include('pages.includes.copy')
 @endpush

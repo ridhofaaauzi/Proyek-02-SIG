@@ -8,29 +8,29 @@
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            mobileTooltip.classList.remove("animate-pulse");
+            mobileTooltip.classList.remove("animate-blink");
         });
 
         @if (request()->routeIs('pages.home'))
             if (desktopTooltip) {
-                desktopTooltip.classList.add("animate-pulse");
+                desktopTooltip.classList.add("animate-blink");
                 setTimeout(() => {
-                    desktopTooltip.classList.remove("animate-pulse");
-                }, 5000);
+                    desktopTooltip.classList.remove("animate-blink");
+                }, 6750);
             }
 
             if (mobileTooltip) {
-                mobileTooltip.classList.add("animate-pulse");
+                mobileTooltip.classList.add("animate-blink");
                 setTimeout(() => {
-                    mobileTooltip.classList.remove("animate-pulse");
-                }, 5000);
+                    mobileTooltip.classList.remove("animate-blink");
+                }, 6750);
             }
 
             if (mobileMenuTooltip) {
-                mobileMenuTooltip.classList.add("animate-pulse");
+                mobileMenuTooltip.classList.add("animate-blink");
                 setTimeout(() => {
-                    mobileMenuTooltip.classList.remove("animate-pulse");
-                }, 5000);
+                    mobileMenuTooltip.classList.remove("animate-blink");
+                }, 6750);
             }
         @endif
     });

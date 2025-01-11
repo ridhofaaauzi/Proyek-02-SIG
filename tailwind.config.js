@@ -19,9 +19,14 @@ export default {
                     "0%, 100%": { opacity: "1" },
                     "50%": { opacity: "0.7" },
                 },
+                blink: {
+                    "0%, 100%": { opacity: "1" },
+                    "50%": { opacity: "0" },
+                },
             },
             animation: {
                 pulse: "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                blink: "blink 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
             },
         },
     },

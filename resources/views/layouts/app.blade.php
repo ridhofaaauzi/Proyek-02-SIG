@@ -30,7 +30,7 @@
 
 <body class="relative bg-gray-100 min-h-screen">
     <div
-        class="absolute top-0 left-0 bottom-0 z-[-2] h-full w-screen bg-blue-200 bg-[radial-gradient(#ffffff33_1px,#eff6ff_1px)] bg-[size:20px_20px]">
+        class="absolute inset-0 z-[-2] h-full w-screen bg-blue-200 bg-[radial-gradient(#ffffff33_1px,#eff6ff_1px)] bg-[size:20px_20px] bg-center">
     </div>
     @include('layouts.header')
     @yield('content')

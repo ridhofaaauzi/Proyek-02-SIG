@@ -17,11 +17,11 @@
         openModalButton.addEventListener('click', () => {
             modalDistrictName.textContent = "{{ $birth_rate->district->name }}";
             modalDistrictDataYear.textContent = "{{ $district_data->year }}";
-            modalDistrictLatitude.textContent = "{{ $birth_rate->district->latitude }}";
-            modalDistrictLongitude.textContent = "{{ $birth_rate->district->longitude }}";
+            modalDistrictLatitude.textContent = "{{ $birth_rate->district->latitude }}°";
+            modalDistrictLongitude.textContent = "{{ $birth_rate->district->longitude }}°";
             modalBirthYear.textContent = "{{ $birth_rate->birthYear->year }}";
             modalPopulation.textContent = "{{ $district_data->population }}";
-            modalArea.textContent = "{{ $district_data->area }}";
+            modalArea.textContent = "{{ $district_data->area }} Km²";
             modalBirthRate.textContent = "{{ $birth_rate->total }}";
             modal.classList.remove('hidden');
         });

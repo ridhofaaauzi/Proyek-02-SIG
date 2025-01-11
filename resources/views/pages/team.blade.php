@@ -8,7 +8,7 @@
 
 @section('content')
     <main class="relative max-w-7xl mx-auto lg:my-6 lg:px-8">
-        <div class="text-center pt-8 sm:mt-10 sm:mb-16 px-4 sm:p-0">
+        <div class="text-center pt-8 sm:mt-10 sm:mb-16 px-4 lg:p-0">
             <h1 class="text-2xl sm:text-3xl font-bold sm:leading-9 text-gray-800">Peta Kelahiran Kota Depok: Data, Tren, dan
                 Masa Depan</h1>
             <p class="text-base font-normal text-gray-600 sm:mt-2 mt-6">
